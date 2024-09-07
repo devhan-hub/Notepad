@@ -5,7 +5,6 @@
         "content": "Milk, Eggs, Bread, Fruits",
         "created_at": "2023-10-01T10:00:00Z",
         "updated_at": "2023-10-01T10:00:00Z",
-        "tags": ["shopping", "food"],
         "id": 1
       },
       {
@@ -13,7 +12,6 @@
         "content": "Discuss project milestones and deadlines.",
         "created_at": "2023-10-02T11:00:00Z",
         "updated_at": "2023-10-02T11:00:00Z",
-        "tags": ["work", "meeting"],
         "id": 2
       },
       {
@@ -21,7 +19,6 @@
         "content": "Cardio on Monday, Strength training on Wednesday.",
         "created_at": "2023-10-03T09:30:00Z",
         "updated_at": "2023-10-03T09:30:00Z",
-        "tags": ["fitness", "health"],
         "id": 3
       },
       {
@@ -29,7 +26,6 @@
         "content": "1. The Great Gatsby, 2. To Kill a Mockingbird.",
         "created_at": "2023-10-04T14:45:00Z",
         "updated_at": "2023-10-04T14:45:00Z",
-        "tags": ["reading", "books"],
         "id": 4
       },
       {
@@ -37,7 +33,6 @@
         "content": "Flight details and hotel reservations.",
         "created_at": "2023-10-05T16:20:00Z",
         "updated_at": "2023-10-05T16:20:00Z",
-        "tags": ["travel", "vacation"],
         "id": 5
       }
     ]
