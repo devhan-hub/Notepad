@@ -58,20 +58,31 @@ const AddNote = () => {
       .then(() => navigate('/allnote'))
       .catch((err) => console.error("Error saving the note:", err));
 
-  
-
   }
+  const handelDelete = () => {
+    if(id) {
+      fetch(`http://localhost:8000/notes/${id}`, {
+        method: 'DELETE'
+      })
+        .then(() => navigate('/allnote'))
+        .catch((err) => console.error("Error saving the note:", err));
+    }
+    else {
+      navigate('/allnote')
+    }
+    }
+  
 
   //  bg-[url('../img/flower.png')] bg-cover bg-no-repeat bg-left-top
   return (
-    <div className="mt-2 h-full font-libra  px-14">
+    <div className="mt-2 h-full font-libra overflow-auto h-autoscrollbar-thumb scrollbar-track scrollbar-thumb-hover  px-14">
                
 
-      <form className="overflow-auto h-autoscrollbar-thumb scrollbar-track scrollbar-thumb-hover " >
-        <div className={`duration-300 z-30 overflow-hidden p-4 px-10 bg-[#EEEBE5] shadow-lg absolute left-0 right-0 top-0 ${isExpanded ? 'block space-y-4 h-44' : 'flex items-center gap-4 h-16'}`}>
+      <form className=" " >
+        <div className={`duration-300 z-30 overflow-hidden p-4  bg-[#EEEBE5] shadow-lg absolute left-0 right-0 top-0 ${isExpanded ? 'block space-y-4 h-44' : 'flex items-center gap-4 h-16'}`}>
 
           <div className="icon flex justify-between   items-center">
-            <i className={`fa-solid text-xl ${isExpanded ? 'fa-angle-up' : 'fa-angle-left'}`} onClick={handelExpand} ></i>
+            <i className={`fa-solid text-xl cursor-pointer ${isExpanded ? 'fa-angle-up' : 'fa-angle-left'}`} onClick={handelExpand} ></i>
             <i className={`fa-regular fa-star  text-xl ml-auto ${isExpanded ? 'block' : 'hidden'}`} ></i>
           </div>
 
@@ -84,9 +95,10 @@ const AddNote = () => {
             <p>Last modified : {updated}</p>
             <p>created : {created}</p>
           </div>
-          <div className={`flex ml-auto  items-center gap-4 ${isExpanded ? 'hidden' : 'block'}`} >
-            <p className="cursor-pointer" onClick={id && handelSave}>Save</p>
-            <div className={`px-2 py-1.5 duration-200 rounded-full    ${!isEditabel && 'bg-[#aaa]'}`}><i className="fas fa-book-open text-xl" onClick={handelEdit}></i></div>
+          <div className={`flex ml-auto  items-center px-1 gap-4 ${isExpanded ? 'hidden' : 'block'}`} >
+            <p className="cursor-pointer" onClick={handelSave}>Save</p>
+            <p className="cursor-pointer" onClick={handelDelete}>Delete</p>
+            <div className={ `cursor-pointer px-2 py-1.5 duration-200 rounded-full    ${!isEditabel && 'bg-[#aaa]'}`}><i className="fas fa-book-open text-xl" onClick={handelEdit}></i></div>
             <i className="fas fa-times text-xl cursor-pointer" onClick={() => navigate('/allnote')}></i>
           </div>
         </div>

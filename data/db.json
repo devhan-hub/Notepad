@@ -2,17 +2,10 @@
   "notes": [
     {
       "title": "Grocery List",
-      "content": "Milk, Eggs, Bread, Fruits",
+      "content": "Milk, Eggs, Bread, Fruits, mango",
       "created": "10/01/2023",
-      "updated": "10/01/2023",
+      "updated": "9/8/2024",
       "id": "1"
-    },
-    {
-      "title": "Meeting Notes",
-      "content": "Discuss project milestones and deadlines.",
-      "created": "10/02/2023",
-      "updated": "10/02/2023",
-      "id": "2"
     },
     {
       "title": "Workout Plan",
@@ -22,41 +15,11 @@
       "id": "3"
     },
     {
-      "title": "Book Recommendations",
-      "content": "1. The Great Gatsby, 2. To Kill a Mockingbird.",
-      "created": "10/04/2023",
-      "updated": "10/04/2023",
-      "id": "4"
-    },
-    {
       "title": "Travel Itinerary",
       "content": "Flight details and hotel reservations.",
       "created": "10/05/2023",
       "updated": "10/05/2023",
       "id": "5"
-    },
-    {
-      "newNotes": {
-        "title": "hanuTry ",
-        "content": "mkjuuii   nmskkajjsdhhhcbnnxmmz ",
-        "created": "9/7/2024",
-        "updated": "9/8/2024"
-      },
-      "id": "3fb3"
-    },
-    {
-      "id": "467c",
-      "title": "Grocery List",
-      "content": "Milk, Eggs, Bread, ",
-      "created": "10/01/2023",
-      "updated": "9/7/2024"
-    },
-    {
-      "id": "2e41",
-      "title": "Travel Itinerary",
-      "content": "Flight details and hotel reservations.",
-      "created": "10/05/2023",
-      "updated": "9/7/2024"
     },
     {
       "id": "fb0b",
@@ -66,25 +29,11 @@
       "updated": "9/7/2024"
     },
     {
-      "id": "655d",
-      "title": "Grocery List",
-      "content": "Milk, Eggs, Bread, Fruits",
-      "created": "10/01/2023",
-      "updated": "9/7/2024"
-    },
-    {
       "id": "deba",
       "title": "Book Recommendations",
       "content": "1. The Great Gatsby, 2. To Kill a Mockingbird.",
       "created": "10/04/2023",
       "updated": "9/8/2024"
-    },
-    {
-      "title": "hanuman",
-      "content": "belw mech yehun gn misakeln mecheym",
-      "created": "9/8/2024",
-      "updated": "9/8/2024",
-      "id": "be69"
     }
   ]
 }
