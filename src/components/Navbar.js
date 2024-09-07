@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom"
 const navbar = () => {
   return (
-    <nav className="flex justify-end items-center p-8 gap-6 shadow-lg">
-      <div className="logo mr-auto">Notes</div>
-      <Link to ={`/addnote/${null}`}>Add Note</Link>
-      <Link to='/allnote'>All Notes</Link>
+    <nav className="flex justify-end items-center p-8 gap-6 shadow-lg bg-[#EEEBE5]">
+      <div className="logo cursor-pointer mr-auto text-2xl flex gap-0 text-[#7b5f28] hover:scale-90 duration-300"><i class="fa fa-book"></i> <i class="fas fa-pen rotate-[130deg]"></i>
+      </div>
+      <Link to="/addnote" className=" font-libra font-semibold text-lg hover:scale-90 duration-300">Add Note</Link>
+      <Link to='/allnote' className=" font-libra font-semibold text-lg hover:scale-90 duration-300">All Notes</Link>
     </nav>
   )
 }

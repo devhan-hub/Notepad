@@ -47,7 +47,7 @@ const AddNote = () => {
       updated: formattedDate
     }
 
-    const method= id?'PUT':'POST';
+    const method= id ?'PUT':'POST';
     const url = id?`http://localhost:8000/notes/${id}`:'http://localhost:8000/notes';
 
     fetch(url, {
@@ -55,7 +55,7 @@ const AddNote = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newNotes)
     })
-      .then(() => navigate('/allnote'))
+      .then(() =>setEditabel(false))
       .catch((err) => console.error("Error saving the note:", err));
 
   }
@@ -64,7 +64,12 @@ const AddNote = () => {
       fetch(`http://localhost:8000/notes/${id}`, {
         method: 'DELETE'
       })
-        .then(() => navigate('/allnote'))
+        .then(() =>{
+          setTitle( 'Title') 
+          setContent( '') 
+          setCreated( '') 
+          setUpdated('') 
+        })
         .catch((err) => console.error("Error saving the note:", err));
     }
     else {
@@ -79,7 +84,7 @@ const AddNote = () => {
                
 
       <form className=" " >
-        <div className={`duration-300 z-30 overflow-hidden p-4  bg-[#EEEBE5] shadow-lg absolute left-0 right-0 top-0 ${isExpanded ? 'block space-y-4 h-44' : 'flex items-center gap-4 h-16'}`}>
+        <div className={`duration-300 z-30 overflow-hidden p-4  bg-[#EEEBE5] shadow-lg absolute left-0 right-0 top-0 ${isExpanded ? 'block space-y-4 h-44' : 'flex items-center gap-4 h-24'}`}>
 
           <div className="icon flex justify-between   items-center">
             <i className={`fa-solid text-xl cursor-pointer ${isExpanded ? 'fa-angle-up' : 'fa-angle-left'}`} onClick={handelExpand} ></i>
@@ -103,7 +108,7 @@ const AddNote = () => {
           </div>
         </div>
        
-       <div className="mt-20 rounded-xl shadow-inner  shadow-black max-w-md mx-auto bg-[#EEEBE5] overflow-hidden">
+       <div className="mt-8 rounded-xl shadow-inner  shadow-black max-w-md mx-auto bg-[#EEEBE5] overflow-hidden">
         
         <p className=" font-libra  text-white w-40 h-40 mx-auto text-3xl rounded-full px-10 pt-24 bg-black -mt-20">Notes</p>
         <textarea disabled={!isEditabel}

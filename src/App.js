@@ -9,10 +9,12 @@ function App() {
    
     <div className="App">
       <Router>
-      
+      <Navbar/>
         <Routes>
        <Route path='/allnote' element = { <NoteList/>}/> 
-       <Route path='/addnote/:id' element = {<AddNote/>}/> 
+       <Route path="/addnote" element={<AddNote />} />
+       <Route path="/addnote/:id" element={<AddNote />} />
+
      </Routes>
    </Router>
     </div>
