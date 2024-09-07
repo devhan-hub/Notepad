@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import useFetch from "./useFetch";
+
 
 const NoteList = () => {
     const {notes, isPending, error} = useFetch('http://localhost:8000/notes')
@@ -9,8 +11,10 @@ const NoteList = () => {
             {isPending && <div> Loding... </div>}
             {error && <div> {error}</div>}
             {notes && notes.map((note) => (
-
+                    
                     <div className="each-notes flex flex-col gap-2 items-center " key={note.id}>
+                          <Link to={`/addnote/${note.id}`}>
+                         
                         <div className="content w-72 h-[350px] overflow-hidden p-6 bg-[#333] text-white leading-7 text-start rounded-md">
                             {note.content}
                         </div>
@@ -18,8 +22,9 @@ const NoteList = () => {
                             {note.title}
                         </div>
                         <div className="last-updated">
-                            {note.updated_at}
+                            {note.updated}
                         </div>
+                          </Link>
                     </div>
                 ))
 

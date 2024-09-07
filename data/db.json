@@ -1,39 +1,90 @@
 {
-    "notes": [
-      {
-        "title": "Grocery List",
-        "content": "Milk, Eggs, Bread, Fruits",
-        "created_at": "2023-10-01T10:00:00Z",
-        "updated_at": "2023-10-01T10:00:00Z",
-        "id": 1
+  "notes": [
+    {
+      "title": "Grocery List",
+      "content": "Milk, Eggs, Bread, Fruits",
+      "created": "10/01/2023",
+      "updated": "10/01/2023",
+      "id": "1"
+    },
+    {
+      "title": "Meeting Notes",
+      "content": "Discuss project milestones and deadlines.",
+      "created": "10/02/2023",
+      "updated": "10/02/2023",
+      "id": "2"
+    },
+    {
+      "title": "Workout Plan",
+      "content": "Cardio on Monday, Strength training on Wednesday.",
+      "created": "10/03/2023",
+      "updated": "10/03/2023",
+      "id": "3"
+    },
+    {
+      "title": "Book Recommendations",
+      "content": "1. The Great Gatsby, 2. To Kill a Mockingbird.",
+      "created": "10/04/2023",
+      "updated": "10/04/2023",
+      "id": "4"
+    },
+    {
+      "title": "Travel Itinerary",
+      "content": "Flight details and hotel reservations.",
+      "created": "10/05/2023",
+      "updated": "10/05/2023",
+      "id": "5"
+    },
+    {
+      "newNotes": {
+        "title": "hanuTry ",
+        "content": "mkjuuii   nmskkajjsdhhhcbnnxmmz ",
+        "created": "9/7/2024",
+        "updated": "9/8/2024"
       },
-      {
-        "title": "Meeting Notes",
-        "content": "Discuss project milestones and deadlines.",
-        "created_at": "2023-10-02T11:00:00Z",
-        "updated_at": "2023-10-02T11:00:00Z",
-        "id": 2
-      },
-      {
-        "title": "Workout Plan",
-        "content": "Cardio on Monday, Strength training on Wednesday.",
-        "created_at": "2023-10-03T09:30:00Z",
-        "updated_at": "2023-10-03T09:30:00Z",
-        "id": 3
-      },
-      {
-        "title": "Book Recommendations",
-        "content": "1. The Great Gatsby, 2. To Kill a Mockingbird.",
-        "created_at": "2023-10-04T14:45:00Z",
-        "updated_at": "2023-10-04T14:45:00Z",
-        "id": 4
-      },
-      {
-        "title": "Travel Itinerary",
-        "content": "Flight details and hotel reservations.",
-        "created_at": "2023-10-05T16:20:00Z",
-        "updated_at": "2023-10-05T16:20:00Z",
-        "id": 5
-      }
-    ]
-  }
+      "id": "3fb3"
+    },
+    {
+      "id": "467c",
+      "title": "Grocery List",
+      "content": "Milk, Eggs, Bread, ",
+      "created": "10/01/2023",
+      "updated": "9/7/2024"
+    },
+    {
+      "id": "2e41",
+      "title": "Travel Itinerary",
+      "content": "Flight details and hotel reservations.",
+      "created": "10/05/2023",
+      "updated": "9/7/2024"
+    },
+    {
+      "id": "fb0b",
+      "title": "Meeting Notes",
+      "content": "Discuss project milestones and deadlines.",
+      "created": "10/02/2023",
+      "updated": "9/7/2024"
+    },
+    {
+      "id": "655d",
+      "title": "Grocery List",
+      "content": "Milk, Eggs, Bread, Fruits",
+      "created": "10/01/2023",
+      "updated": "9/7/2024"
+    },
+    {
+      "id": "deba",
+      "title": "Book Recommendations",
+      "content": "1. The Great Gatsby, 2. To Kill a Mockingbird.",
+      "created": "10/04/2023",
+      "updated": "9/8/2024"
+    },
+    {
+      "title": "hanuman",
+      "content": "belw mech yehun gn misakeln mecheym",
+      "created": "9/8/2024",
+      "updated": "9/8/2024",
+      "id": "be69"
+    }
+  ]
+}

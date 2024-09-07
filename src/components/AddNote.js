@@ -1,15 +1,30 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import useFetch from "./useFetch"
-import { useNavigate } from "react-router-dom";
+import { json, useNavigate, useParams } from "react-router-dom";
 
 const AddNote = () => {
- const [title , setTitle ] = useState('Title') ;
- const [content , setContent ] = useState("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est aliquid ad ") ;
- const [created , setCreated] = useState('');
-  const [updated , setUpdated] = useState('');
-  const [isExpanded , setExpanded] = useState(false)
-  const [isEditabel , setEditabel] = useState(true)
- const navigate = useNavigate();
+  const {id} =useParams() ;
+  const navigate = useNavigate();
+  const { notes, isPending, error } = useFetch(id ? 'http://localhost:8000/notes/' + id : null); 
+
+  const [title, setTitle] = useState('Title');
+  const [content, setContent] = useState("");
+  const [created, setCreated] = useState('');
+  const [updated, setUpdated] = useState('');
+  const [isExpanded, setExpanded] = useState(false)
+  const [isEditabel, setEditabel] = useState(true)
+
+  useEffect (() => {
+     if(notes){
+      setTitle(notes.title || '') 
+      setContent(notes.content || '') 
+      setCreated(notes.created || '') 
+      setUpdated(notes.updated || '') 
+      setEditabel(!isEditabel)
+
+     }
+  }, [notes])
+
   const handelExpand = (e) => {
     setExpanded(!isExpanded);
 
@@ -17,42 +32,77 @@ const AddNote = () => {
   const handelEdit = () => {
     setEditabel(!isEditabel);
   }
+  const handelSave = () => {
+   
+    const now = new Date();
+    const day = now.getDate();
+    const month = now.getMonth() + 1;
+    const year = now.getFullYear();
+    const formattedDate = `${month}/${day}/${year}`;
+    
+    const newNotes = {
+      title,
+      content,
+      created: created || formattedDate,
+      updated: formattedDate
+    }
 
+    const method= id?'PUT':'POST';
+    const url = id?`http://localhost:8000/notes/${id}`:'http://localhost:8000/notes';
+
+    fetch(url, {
+      method: method,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newNotes)
+    })
+      .then(() => navigate('/allnote'))
+      .catch((err) => console.error("Error saving the note:", err));
+
+  
+
+  }
+
+  //  bg-[url('../img/flower.png')] bg-cover bg-no-repeat bg-left-top
   return (
-    <div className="mt-2 h-full ">
-      <form className="overflow-auto h-autoscrollbar-thumb scrollbar-track scrollbar-thumb-hover " >
-     
-        <div  className={`duration-300 z-30 overflow-hidden p-4 bg-[#333] text-white absolute left-0 right-0 top-0 ${isExpanded ?'block space-y-4 h-44' :'flex items-center gap-4 h-16'}`}>
+    <div className="mt-2 h-full font-libra  px-14">
+               
 
-          <div className="icon flex justify-between text-white  items-center">
-          <i className={`fa-solid text-xl ${isExpanded ?'fa-angle-up' :'fa-angle-left'}`} onClick={handelExpand} ></i>
-            <i className={`fa-regular fa-star  text-xl ml-auto ${isExpanded ?'block' :'hidden'}`} ></i>
+      <form className="overflow-auto h-autoscrollbar-thumb scrollbar-track scrollbar-thumb-hover " >
+        <div className={`duration-300 z-30 overflow-hidden p-4 px-10 bg-[#EEEBE5] shadow-lg absolute left-0 right-0 top-0 ${isExpanded ? 'block space-y-4 h-44' : 'flex items-center gap-4 h-16'}`}>
+
+          <div className="icon flex justify-between   items-center">
+            <i className={`fa-solid text-xl ${isExpanded ? 'fa-angle-up' : 'fa-angle-left'}`} onClick={handelExpand} ></i>
+            <i className={`fa-regular fa-star  text-xl ml-auto ${isExpanded ? 'block' : 'hidden'}`} ></i>
           </div>
 
-        <input onClick={handelExpand} className=" outline-none bg-transparent text-xl capitalize "
-        type="text" 
-        value={title}
-        onChange={ (e)=> setTitle(e.target.value) }/>
+          <input className=" outline-none bg-transparent  capitalize "
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)} />
 
-        <div className={`space-y-2 ${isExpanded ?'block' :'hidden'}`}>
-        <p>Last modified : {updated} </p>
-        <p>created : {created}</p>
+          <div className={`space-y-2 text-sm ${isExpanded ? 'block' : 'hidden'}`}>
+            <p>Last modified : {updated}</p>
+            <p>created : {created}</p>
+          </div>
+          <div className={`flex ml-auto  items-center gap-4 ${isExpanded ? 'hidden' : 'block'}`} >
+            <p className="cursor-pointer" onClick={id && handelSave}>Save</p>
+            <div className={`px-2 py-1.5 duration-200 rounded-full    ${!isEditabel && 'bg-[#aaa]'}`}><i className="fas fa-book-open text-xl" onClick={handelEdit}></i></div>
+            <i className="fas fa-times text-xl cursor-pointer" onClick={() => navigate('/allnote')}></i>
+          </div>
         </div>
-        <div className ={`flex ml-auto items-center gap-4 ${isExpanded ?'hidden' :'block'}`} >
-          <p>Save</p>
-          <p>Delete</p>
-         
-        <div className={`px-2 py-1.5 duration-200 rounded-full    ${!isEditabel && 'bg-[#828080]'}`}><i className="fas fa-book-open text-xl" onClick={handelEdit}></i></div>
-           <i className="fas fa-times text-xl cursor-pointer" onClick={() => navigate('/navbar')}></i>
-        </div>
-        </div>
-      
-        <textarea disabled ={!isEditabel}
-         className=" z-50 left-0 h-auto px-6 py-20 w-full outline-none bg-[#484747] min-h-screen overflow-hidden text-white"
-        value={content}
-        onChange={(e) => setContent(e.target.value)}></textarea>
+       
+       <div className="mt-20 rounded-xl shadow-inner  shadow-black max-w-md mx-auto bg-[#EEEBE5] overflow-hidden">
+        
+        <p className=" font-libra  text-white w-40 h-40 mx-auto text-3xl rounded-full px-10 pt-24 bg-black -mt-20">Notes</p>
+        <textarea disabled={!isEditabel}
+          className=" bg-transparent  h-auto px-6 py-6 w-full outline-none  min-h-[70vh] overflow-hidden "
+          value={content}
+          onChange={(e) => setContent(e.target.value)}></textarea>
+          </div>
       </form>
     </div>
+
+    // bg-[url('../img/img.webp')] bg-cover bg-center  bg-no-repeat #FFF8EF #FF9162 #7FB3E1 #92C7E4 #C5D1E6 #FCF6F1 #E4C2D2 #E8C9D1 #EEEBE5
   )
 }
 

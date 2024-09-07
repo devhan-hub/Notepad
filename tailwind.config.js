@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily:{
+        libra:'"Libre Baskerville", serif'
+      },
       scrollbar: {
         DEFAULT: {
           'width': '12px',

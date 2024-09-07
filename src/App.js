@@ -9,9 +9,10 @@ function App() {
    
     <div className="App">
       <Router>
+      
         <Routes>
-       <Route path='/navbar' element = {<Navbar/>}/> 
-       <Route path='/' element = {<AddNote/>}/> 
+       <Route path='/allnote' element = { <NoteList/>}/> 
+       <Route path='/addnote/:id' element = {<AddNote/>}/> 
      </Routes>
    </Router>
     </div>
