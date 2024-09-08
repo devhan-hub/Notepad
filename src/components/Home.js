@@ -39,7 +39,7 @@ const HomePage = () => {
 
       </div>
       <footer className="mt-auto p-4 text-sm text-center">
-        <p>© 2024 My Notepad App. All rights reserved.</p>
+      <p>© {new Date().getFullYear()} My Notepad App. All rights reserved.</p>
       </footer>
     
     </>
