@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const HomePage = () => {
   return (
     <>
-    <div className="homepage-container h-auto p-8 flex flex-col items-center justify-center bg-[#EEEBE5] mt-2">
+    <div className="homepage-container h-auto p-8 flex flex-col items-center justify-center ">
       
 
       <section className=" text-center mt-10 ">
@@ -38,7 +38,7 @@ const HomePage = () => {
       </section>
 
       </div>
-      <footer className="mt-auto p-4 text-sm text-center">
+      <footer className="mt-auto p-4 text-sm text-center bg-[#ffbe62]">
       <p>© {new Date().getFullYear()} My Notepad App. All rights reserved.</p>
       </footer>
     

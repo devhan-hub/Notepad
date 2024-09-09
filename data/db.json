@@ -2,9 +2,10 @@
   "notes": [
     {
       "title": "Grocery List",
-      "content": "Milk, Eggs, Bread, Fruits, mango",
+      "content": "Milk, Eggs, Bread, Fruits, mango nmmm",
       "created": "10/01/2023",
-      "updated": "9/8/2024",
+      "updated": "9/9/2024",
+      "favorite": true,
       "id": "1"
     },
     {
@@ -12,49 +13,48 @@
       "content": "Cardio on Monday, Strength training on Wednesday.",
       "created": "10/03/2023",
       "updated": "10/03/2023",
-      "id": "3"
+      "id": "3",
+      "favorite": false
     },
     {
       "title": "Travel Itinerary",
       "content": "Flight details and hotel reservations.",
       "created": "10/05/2023",
       "updated": "10/05/2023",
-      "id": "5"
+      "id": "5",
+      "favorite": false
     },
     {
       "id": "fb0b",
       "title": "Meeting Notes",
       "content": "Discuss project milestones and deadlines.",
       "created": "10/02/2023",
-      "updated": "9/7/2024"
+      "updated": "9/7/2024",
+      "favorite": false
     },
     {
       "title": "Book Recommendations",
-      "content": "1. The Great Gatsby, 2. To Kill ",
+      "content": "1. The Great Gatsby, 2. To Kill  bnsaj njnnn",
       "created": "10/04/2023",
       "updated": "9/8/2024",
-      "id": "deba"
+      "id": "deba",
+      "favorite": false
     },
     {
       "title": "Title",
-      "content": "mjkkk  mkjj mkkk",
+      "content": "mjkkk  mkjj mkkk nhjja",
       "created": "9/8/2024",
       "updated": "9/8/2024",
-      "id": "3782"
+      "id": "3782",
+      "favorite": false
     },
     {
-      "id": "bd42",
+      "id": "c922",
       "title": "Title",
       "content": "",
-      "created": "9/8/2024",
-      "updated": "9/8/2024"
-    },
-    {
-      "id": "9e1d",
-      "title": "Title",
-      "content": "mnhg",
-      "created": "9/8/2024",
-      "updated": "9/8/2024"
+      "created": "9/9/2024",
+      "updated": "9/9/2024",
+      "favorite": false
     }
   ]
 }

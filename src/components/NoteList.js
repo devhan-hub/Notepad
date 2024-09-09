@@ -11,11 +11,10 @@ const NoteList = () => {
             {isPending && <div> Loding... </div>}
             {error && <div> {error}</div>}
             {notes && notes.map((note) => (
-                    // #FFF8EF #FF9162   #7FB3E1 #92C7E4 #C5D1E6 #FCF6F1 #E4C2D2 #E8C9D1 #EEEBE5
                           <Link to={`/addnote/${note.id}`}>
                     <div className="group each-notes flex flex-col gap-2 items-center " key={note.id}>
 
-                        <div className="content w-72 h-[350px] overflow-hidden p-6 rounded-se-[50px] bg-[#EEEBE5]  leading-7 text-start rounded-md scale-95 opacity-95 duration-300 group-hover:opacity-100 group-hover:scale-100 group-hover:shadow-lg ">
+                        <div className="content w-72 h-[350px] overflow-hidden p-6 rounded-se-[50px] shadow-lg shadow-[#fbd7ba] border-2 border-[#ffbe62]  leading-7 text-start rounded-md scale-95 opacity-95 duration-300 group-hover:opacity-100 group-hover:scale-100 group-hover:shadow-lg ">
                             {note.content}
                         </div>
                         <div className="Titel text-lg capitalize font-semibold">

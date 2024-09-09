@@ -15,6 +15,7 @@ const AddNote = () => {
   const [isEditabel, setEditabel] = useState(true)
   const [popUp, setPopUp] = useState(false)
   const [haveChange, sethaveChange] = useState(false);
+  const [favorite , setfavorite] = useState(false)
 
 
   useEffect(() => {
@@ -24,6 +25,7 @@ const AddNote = () => {
       setCreated(notes.created || '')
       setUpdated(notes.updated || '')
       setEditabel(!isEditabel)
+      setfavorite(notes.favorite)
 
     }
   }, [notes])
@@ -35,6 +37,7 @@ const AddNote = () => {
   const handelEdit = () => {
     setEditabel(!isEditabel);
   }
+
   const handelSave = () => {
      
     sethaveChange(false);
@@ -48,7 +51,8 @@ const AddNote = () => {
       title,
       content,
       created: created || formattedDate,
-      updated: formattedDate
+      updated: formattedDate,
+      favorite
     }
 
     const method = id ? 'PUT' : 'POST';
@@ -86,18 +90,31 @@ const AddNote = () => {
     setPopUp(!popUp)
   }
 
+  const handelfavorite = ()=> {
+       setfavorite(!favorite)
+       const addfavorite = notes;
+       addfavorite.favorite = !favorite;
+       fetch(`http://localhost:8000/notes/${addfavorite.id}`, {
+        method: 'PUt',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(addfavorite)
+      })
+        .then(() => setEditabel(false))
+        .catch((err) => console.error("Error saving the note:", err)); 
+
+  }
 
   return (
     <div className="mt-2 h-full font-libra overflow-auto h-autoscrollbar-thumb scrollbar-track scrollbar-thumb-hover  px-14">
 
 
       <form className={`${popUp ? 'hidden' : 'block'}`} >
-        <div className={`duration-300 z-30 overflow-hidden p-4  bg-[#EEEBE5] shadow-lg absolute left-0 right-0 top-0 ${isExpanded ? 'block space-y-4 h-44' : 'flex items-center gap-4 h-24'}`}>
+        <div className={`duration-300 z-30 overflow-hidden p-4  bg-[#ffbe62]  shadow-lg absolute left-0 right-0 top-0 ${isExpanded ? 'block space-y-4 h-44' : 'flex items-center gap-4 h-24'}`}>
 
           <div className="icon flex justify-between   items-center">
             <i className={`fa-solid text-xl cursor-pointer ${isExpanded ? 'fa-angle-up' : 'fa-angle-left'}`} onClick={handelExpand} ></i>
-            <i className={`fa-regular fa-star  text-xl ml-auto ${isExpanded ? 'block' : 'hidden'}`} ></i>
-          </div>
+            <i className={`fa-${favorite ? 'solid' : 'regular'} fa-star text-xl ml-auto ${isExpanded ? 'block' : 'hidden'} cursor-pointer`} onClick={handelfavorite}></i>
+            </div>
 
           <input className=" outline-none bg-transparent  capitalize "
             type="text"
@@ -117,9 +134,9 @@ const AddNote = () => {
           </div>
         </div>
 
-        <div className="mt-8 rounded-xl shadow-inner  shadow-black max-w-md mx-auto bg-[#EEEBE5] overflow-hidden">
+        <div className="mt-8 rounded-xl shadow-xl  shadow-[#fbd7ba] max-w-md mx-auto  overflow-hidden border-2 border-[#ffbe62]">
 
-          <p className=" font-libra  text-white w-40 h-40 mx-auto text-3xl rounded-full px-10 pt-24 bg-black -mt-20">Notes</p>
+          <p className=" font-libra  text-black w-40 h-40 mx-auto text-3xl rounded-full px-10 pt-24 bg-[#ffbe62] -mt-20">Notes</p>
           <textarea disabled={!isEditabel}
             className=" bg-transparent  h-auto px-6 py-6 w-full outline-none  min-h-[70vh] overflow-hidden "
             value={content}
@@ -128,13 +145,13 @@ const AddNote = () => {
       </form>
 
       <div className={`fixed left-0 right-0 w-full h-full flex justify-center mt-10 items-start ${popUp ? 'block' : 'hidden'}`}  >
-        <div className=" flex flex-col space-y-4 items-center w-[85vh] p-10 mx-auto bg-[#EEEBE5] rounded-xl ">
+        <div className=" flex flex-col space-y-4 items-center w-[85vh] p-10 mx-auto bg-[#ffbe62] rounded-xl ">
           <p className="mr-auto font-bold text-2xl">Notes</p>
           <p className="font-bold text-xl mr-auto">Do you want to save changes ?</p>
           <div className="flex gap-4">
-            <button className="outline-none border-2 bg-[#333] px-10 py-0.5  rounded-xl text-white" onClick={() => { handelSave(); handelpopUp() }} >Save</button>
-            <button className="outline-none border-2 bg-[#333] px-10 py-0.5  rounded-xl text-white" onClick={() => handelpopUp()} >Don't Save</button>
-            <button className="outline-none border-2 bg-[#333] px-10 py-0.5  rounded-xl text-white" onClick={() => navigate('/')} >Cancel</button>
+            <button className="outline-none border-2 bg-white px-10 py-0.5  rounded-xl " onClick={() => { handelSave(); handelpopUp() }} >Save</button>
+            <button className="outline-none border-2 bg-white px-10 py-0.5  rounded-xl " onClick={() => navigate('/')}  >Don't Save</button>
+            <button className="outline-none border-2 bg-white px-10 py-0.5  rounded-xl " onClick={() => handelpopUp()}>Cancel</button>
           </div>
         </div>
       </div>
@@ -143,6 +160,8 @@ const AddNote = () => {
   )
 }
 
+
+// 
 export default AddNote
 
 
