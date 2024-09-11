@@ -13,7 +13,7 @@ const HomePage = () => {
         </p>
         <Link
           to="/addnote"
-          className="bg-blue-500 text-white py-2 px-6 rounded-md text-lg hover:bg-blue-700"
+          className="bg-[#ffbe62] duration-300  py-2 px-6 rounded-md text-lg hover:bg-[#e09328]  "
         >
           Start Taking Notes
         </Link>

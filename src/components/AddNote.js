@@ -63,7 +63,7 @@ const AddNote = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newNotes)
     })
-      .then(() => setEditabel(false))
+      .then(() =>{ setEditabel(false) ; navigate('/allnote')})
       .catch((err) => console.error("Error saving the note:", err));
 
     
@@ -78,6 +78,7 @@ const AddNote = () => {
           setContent('')
           setCreated('')
           setUpdated('')
+          navigate('/allnote')
         })
         .catch((err) => console.error("Error saving the note:", err));
     }
